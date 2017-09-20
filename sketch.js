@@ -35,21 +35,8 @@ function preload(){
    sound = loadSound(randomMusic.song);
 }
 
-// RESIZE :D
 var w = window.innerWidth;
 var h  = window.innerHeight;
-
-window.onresize = function(event) {
-   var newW = event.target.innerWidth;
-   var newH = event.target.innerHeight;
-
-   canvas.width = newW;
-   canvas. height = newH;
-
-   location.reload();
-};
-
-// VAR
 var balls = [];
 var randBackR = Math.floor(Math.random() * 255) + 128;
 var randBackG = Math.floor(Math.random() * 255) + 128;
@@ -60,54 +47,49 @@ var canvas;
 var rotateValue = 0;
 var imgDefault;
 var reverseButton;
-var pauseButton;
-var playButton;
+var buttonPlayPause;
 var songTitle;
-
-
-function togglePlay() {
-   if(sound.isPlaying()) {
-      sound.pause();
-      imgDefault.rotation(0);
-   } else {
-      sound.loop();
-   }
-}
-
+var sliderSpeed;
 
 function setup() {
    canvas = createCanvas(w,h);
    amplitude = new p5.Amplitude();
-   sound.amp(0.4);
+   // sound.amp(0.4);
    sound.setVolume(0.5);
    sound.stop();
 
-   for(var i=0; i<50; i++) {
+   for(var i=0; i<80; i++) {
       balls[i] = new Ball();
    }
 
-   songTitle = new title();
-   songTitle.display();
 
-   // COVER IMAGE
-   imgDefault = new Img();
-   imgDefault.display();
 
-   //REVERSE BUTTON
-   reverseButton  = new buttonR();
-   reverseButton.display();
+	songTitle = new title();
+	songTitle.display();
 
-   // PAUSE BUTTON
-   pauseButton = new buttonP();
-   pauseButton.display();
+	// COVER IMAGE
+	imgDefault = new Img();
+	imgDefault.display();
 
-   // PLAY BUTTON
-   playButton = new buttonPlay();
-   playButton.display();
+	//REVERSE BUTTON
+	reverseButton  = new buttonR();
+	reverseButton.display();
+	reverseButton.inverse();
+
+
+	// PLAY  / PAUSE BUTTON
+	buttonPlayPause = new buttonPlayPause();
+	buttonPlayPause.display();
+
+	sliderSpeed = new sliderSpeed();
+	sliderSpeed.display();
+
+
 }
 
 
 function draw() {
+// console.log(sound);
    background(randBackR,randBackG,randBackB);
    translate(0,h/2);
    for(var i=0; i< balls.length; i++) {
@@ -116,24 +98,24 @@ function draw() {
    }
    if(sound.isPlaying()) {
       imgDefault.rotation(10);
+	  sliderSpeed.move();
+  }
+}
+
+
+function togglePlay() {
+   if(sound.isPlaying()) {
+      sound.pause();
+	  buttonPlayPause.button.elt.textContent = "play";
+      imgDefault.rotation(0);
+   } else {
+      sound.loop();
+	  buttonPlayPause.button.elt.textContent = "pause";
    }
 }
 
 function reverseMusic() {
-   if(sound.isPaused()) {
-      sound.play();
-   }
-   sound.reverseBuffer();
-}
-
-
-function playMusic() {
-   if(sound.isPlaying()) {
-   } else{
-      if(sound.isPaused()) {
-         sound.loop();
-      } else {
-         sound.play();
-      }
-   }
+		sound.pause();
+		sound.reverseBuffer();
+		sound.loop();
 }

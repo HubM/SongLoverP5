@@ -1,4 +1,4 @@
-function buttonPlay() {
+function buttonPlayPause() {
    this.button;
 
    this.display = function() {
@@ -7,6 +7,6 @@ function buttonPlay() {
       this.button.class('btn');
       this.button.position(w-150, 30);
       this.button.style('color',c);
-      this.button.mouseClicked(playMusic);
+      this.button.mouseClicked(togglePlay);
    }
 }

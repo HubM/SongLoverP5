@@ -1,6 +1,6 @@
 // BALL CLASS
 function Ball() {
-  this.x = random(w/4, 3*w/4);
+  this.x = random(0,w);
   this.y = 0;
   this.diameter = random(10, 30);
   this.r = random(128,255);

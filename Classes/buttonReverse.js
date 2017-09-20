@@ -8,6 +8,9 @@ function buttonR() {
       this.button.class('btn');
       this.button.position(w-150, 130);
       this.button.style('color',c);
-      this.button.mouseClicked(reverseMusic);
+   }
+
+   this.inverse = function() {
+	   this.button.mouseClicked(reverseMusic);
    }
 };
