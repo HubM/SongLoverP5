@@ -54,29 +54,21 @@ var sliderSpeed;
 function setup() {
    canvas = createCanvas(w,h);
    amplitude = new p5.Amplitude();
-   // sound.amp(0.4);
-   // canvas.mouseClicked(togglePlay);
    sound.setVolume(0.4);
    sound.play();
-   // sound.stop();
 
    for(var i=0; i<80; i++) {
       balls[i] = new Ball();
    }
 
-
+	buttonPlayPause = new buttonPlayPause();
+	buttonPlayPause.display();
 
 	songTitle = new title();
 	songTitle.display();
 
-	// COVER IMAGE
 	imgDefault = new Img();
 	imgDefault.display();
-
-	//REVERSE BUTTON
-	reverseButton  = new buttonR();
-	reverseButton.display();
-	reverseButton.inverse();
 
 	sliderSpeed = new sliderSpeed();
 	sliderSpeed.display();
@@ -88,12 +80,7 @@ function draw() {
    translate(0,h/2);
    if(sound.isPlaying()) {
 	   sliderSpeed.move();
-	   console.log(reverseButton.button.elt.textContent);
-	   if(reverseButton.button.elt.textContent == "normal") {
-		   imgDefault.rotation(10);
-	   } else {
-		   imgDefault.rotation(-10);
-	   }
+	   imgDefault.rotation(10*sliderSpeed.speed);
    }
    for(var i=0; i< balls.length; i++) {
       balls[i].display();
@@ -102,34 +89,13 @@ function draw() {
 }
 
 
-// function togglePlay() {
-// 	// sound.playMode("restart");
-//    if(sound.isPlaying()) {
-//       sound.pause();
-//       imgDefault.rotation(0);
-//    } else {
-//       sound.loop();
-//    }
-// }
-
-
-function reverseMusic() {
-	// sound.pause();
-	if(reverseButton.button.elt.textContent = "normal") {
+function togglePlay() {
+	if(sound.isPlaying()) {
+		buttonPlayPause.button.elt.innerText = "play";
 		sound.pause();
-		sound.reverseBuffer();
+		imgDefault.rotation(0);
+	} else {
+		buttonPlayPause.button.elt.innerText = "pause";
 		sound.loop();
 	}
-	// if(sound.isPlaying()) {
-	// 	sound.pause();
-	// 	sound.reverseBuffer();
-	// 	sound.loop();
-	// 	reverseButton.button.elt.textContent = "normal";
-	// } else {
-	// 	sound.play();
-	// 	reverseButton.button.elt.textContent = "reverse";
-	// }
-	// if(sound.isPlaying()) {
-	//
-	// }
 }

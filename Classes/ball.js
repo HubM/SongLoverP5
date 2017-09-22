@@ -1,4 +1,3 @@
-// BALL CLASS
 function Ball() {
   this.x = random(0,w);
   this.y = 0;
@@ -10,7 +9,6 @@ function Ball() {
 
   this.move = function(element) {
 	 this.framerate = element;
-	 console.log(this.framerate);
      frameRate(this.framerate*10);
      var level = amplitude.getLevel();
      var size = map(level, 0, 1, 0, 200);
