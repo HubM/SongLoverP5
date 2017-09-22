@@ -3,7 +3,7 @@ function title() {
    this.link;
 
    this.display = function() {
-      this.title = createP(randomMusic.name);
+      this.title = createElement('h1',randomMusic.name);
       this.title.class('title');
       this.title.position(200,30);
 

@@ -50,6 +50,7 @@ var reverseButton;
 var buttonPlayPause;
 var songTitle;
 var sliderSpeed;
+var sliderVolume;
 
 function setup() {
    canvas = createCanvas(w,h);
@@ -72,6 +73,9 @@ function setup() {
 
 	sliderSpeed = new sliderSpeed();
 	sliderSpeed.display();
+
+	sliderVolume = new sliderVolume();
+	sliderVolume.display();
 }
 
 
@@ -80,6 +84,7 @@ function draw() {
    translate(0,h/2);
    if(sound.isPlaying()) {
 	   sliderSpeed.move();
+	   sliderVolume.move();
 	   imgDefault.rotation(10*sliderSpeed.speed);
    }
    for(var i=0; i< balls.length; i++) {
