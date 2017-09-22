@@ -6,6 +6,6 @@ function buttonP() {
       this.button.class('btn');
       this.button.position(w-150, 80);
       this.button.style('color',c);
-      this.button.mouseClicked(togglePlay);
+    //   this.button.mouseClicked(togglePlay);
    }
 }

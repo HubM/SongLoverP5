@@ -3,7 +3,7 @@ function Img() {
    this.display = function() {
       this.img = createImg(randomMusic.img);
       this.img.addClass('cover');
-      this.img.mouseClicked(togglePlay);
+    //   this.img.mouseClicked(togglePlay);
    }
 
    this.rotation = function(speed) {

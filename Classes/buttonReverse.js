@@ -4,9 +4,9 @@ function buttonR() {
 
    this.display = function() {
       var c = color(randBackR,randBackG,randBackB);
-      this.button = createButton('reverse');
+      this.button = createButton('normal');
       this.button.class('btn');
-      this.button.position(w-150, 130);
+      this.button.position(w-150, 30);
       this.button.style('color',c);
    }
 

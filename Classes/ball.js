@@ -6,9 +6,12 @@ function Ball() {
   this.r = random(128,255);
   this.g = random(128,255);
   this.b = random(128,255);
+  this.framerate;
 
-  this.move = function() {
-     frameRate(10);
+  this.move = function(element) {
+	 this.framerate = element;
+	 console.log(this.framerate);
+     frameRate(this.framerate*10);
      var level = amplitude.getLevel();
      var size = map(level, 0, 1, 0, 200);
      var finalSize = size*40;

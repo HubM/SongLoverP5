@@ -9,5 +9,7 @@ function sliderSpeed() {
 	this.move = function() {
 		this.speed = this.slider.value();
 		sound.rate(this.speed);
+
+		return this.speed;
 	}
 }
