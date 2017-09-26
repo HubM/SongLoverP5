@@ -69,6 +69,10 @@ function draw() {
       balls[i].display();
       balls[i].move(sliderSpeed.speed);
    }
+
+   sound.onended(function(){
+	   location.reload();
+   });
 }
 
 
