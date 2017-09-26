@@ -26,15 +26,20 @@ function preload(){
    });
 }
 
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+
 function setup() {
-   canvas = createCanvas(w,h);
+   canvas = createCanvas(windowWidth, windowHeight);
    amplitude = new p5.Amplitude();
    sound.setVolume(0.4);
    sound.play();
    for(var i=0; i<80; i++) {
       balls[i] = new Ball();
    }
-   
+
 	buttonPlayPause = new buttonPlayPause();
 	buttonPlayPause.display();
 
