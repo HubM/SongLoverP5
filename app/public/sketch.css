@@ -1,4 +1,4 @@
-body {
+formbody {
 	width: 100vw;
 	height: 100vh;
 	/*overflow: hidden;*/
@@ -190,8 +190,64 @@ input[type=range]:focus::-ms-fill-upper {
 / THE FORM
 ********************/
 
+.displayForm {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translate(-50%,0) rotate(45deg);
+	z-index: 2;
+}
+
+
+#uploadFormContainer {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.5);
+	z-index: 3;
+	position: absolute;
+	left: 100%;
+}
 
 form{
+	width: 200px;
+	display: block;
+	margin: 100px auto;
+	padding: 30px;
+	background: black;
+	z-index: 10;
 	position: relative;
-	z-index: 3;
+}
+
+form  input {
+	width: 100%;
+	border: none;
+	font-size: 12px;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	color: white;
+	outline: 0;
+}
+
+form  input[type="text"]  {
+	background: none;
+	border-bottom: 1px solid white;
+	padding-bottom: 5px;
+}
+
+form  input[placeholder] {
+	color: white;
+}
+
+form > input:not(:last-of-type) {
+	margin-bottom: 30px;
+}
+
+form > input[type="submit"] {
+	width: 100px;
+ padding: 10px;
+ margin: 0 auto;
+ display: block;
+ background:white;
+ color: black;
 }

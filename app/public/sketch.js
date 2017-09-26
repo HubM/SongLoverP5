@@ -16,6 +16,8 @@ var buttonPlayPause;
 var songTitle;
 var sliderSpeed;
 var sliderVolume;
+var displayForm;
+
 
 function preload(){
    loadJSON('songs.json', function(data){
@@ -54,6 +56,9 @@ function setup() {
 
 	sliderVolume = new sliderVolume();
 	sliderVolume.display();
+
+   displayForm = new displayForm();
+   displayForm.display();
 }
 
 

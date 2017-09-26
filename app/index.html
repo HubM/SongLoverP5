@@ -9,6 +9,7 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.dom.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.sound.min.js"></script>
       <script type="text/javascript" src="Classes/ball.js"></script>
+      <script type="text/javascript" src="Classes/displayForm.js"></script>
       <script type="text/javascript" src="Classes/img.js"></script>
 	  <script type="text/javascript" src="Classes/buttonPlayPause.js"></script>
       <script type="text/javascript" src="Classes/sliderSpeed.js"></script>
@@ -17,15 +18,14 @@
       <script type="text/javascript" src="sketch.js"></script>
    </head>
    <body>
-	   <form method="post" action="/"
-      ref='uploadForm'
-      id='uploadForm'
-      encType="multipart/form-data">
-		    <input type="text" name="songName" required placeholder="Name song">
-			<input type="file" name="songFile" value="" required>
-			<input type="file" name="songCover" value="" required>
-		    <input type="text" name="artistWebsite" placeholder="Artist website song">
-		    <input type="submit" value="Submit">
-		</form>
+      <section id='uploadFormContainer'>
+   	   <form method="post" action="/" ref='uploadForm' encType="multipart/form-data">
+   		    <input type="text" name="songName" required placeholder="Name song">
+   			<input type="file" name="songFile" value="" required>
+   			<input type="file" name="songCover" value="" required>
+   		    <input type="text" name="artistWebsite" placeholder="Artist website song">
+   		    <input type="submit" value="Submit">
+   		</form>
+      </section>
    </body>
 </html>
