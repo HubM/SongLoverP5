@@ -1,7 +1,7 @@
 body {
 	width: 100vw;
 	height: 100vh;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 body,
@@ -182,4 +182,16 @@ input[type=range]:focus::-ms-fill-upper {
 
 .slider:first-of-type {
 	margin: 10px 0 30px 0;
+}
+
+
+
+/********************
+/ THE FORM
+********************/
+
+
+form{
+	position: relative;
+	z-index: 3;
 }
