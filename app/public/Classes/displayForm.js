@@ -8,7 +8,19 @@ function displayForm() {
    }
 
    this.activeForm = function() {
-      var form = document.getElementByClassName('uploadForm');
-      console.log(form);
+    	var form = document.getElementById('uploadFormContainer');
+		var img = document.getElementsByClassName('displayForm');
+
+		// this.elt.className += "test";
+		console.log(this.elt.classList['value'] && this.elt.classList['value'] != "displayForm");
+		if(form.classList['value'] == "") {
+			form.className += "showForm";
+			this.addClass('rotate');
+		} else {
+			this.removeClass('rotate');
+			form.classList.remove("showForm");
+		}
+
    }
+
 }

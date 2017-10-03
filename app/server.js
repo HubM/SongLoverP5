@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const formidable = require('formidable');
 const fs = require('file-system');
 const fileUpload = require('express-fileupload');
 const app = express();
@@ -39,8 +38,6 @@ app.post('/', function(request, response){
 		songCover.mv('public/Images/'+songCover.name, function(err){
 			console.log(err);
 		});
-
-
 
 	  var configFile = fs.readFileSync(filePath);
 	  var config = JSON.parse(configFile);

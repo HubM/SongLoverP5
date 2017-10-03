@@ -1,13 +1,14 @@
-formbody {
+/*formbody {
 	width: 100vw;
 	height: 100vh;
-	/*overflow: hidden;*/
-}
+	overflow: hidden;
+}*/
 
 body,
 canvas {
    margin: 0;
    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   overflow: hidden;
 }
 
 canvas {
@@ -197,7 +198,7 @@ input[type=range]:focus::-ms-fill-upper {
 	bottom: 30px;
 	left: 50%;
 	transform: translate(-50%,0) rotate(45deg);
-	z-index: 2;
+	z-index: 3;
 }
 
 
@@ -250,4 +251,14 @@ form > input[type="submit"] {
  display: block;
  background:white;
  color: black;
+}
+
+
+/*Display form*/
+.showForm {
+	left: 0 !important;
+}
+
+.rotate {
+	transform: translate(-50%,0) rotate(90deg);
 }
