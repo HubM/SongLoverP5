@@ -1,1 +1,7 @@
-[{"name":"Daft Punk - Harder better faster","img":"Images/daft.jpg","song":"Songs/daft.mp3","link":"https://www.youtube.com/channel/UCKHFvArwRwQU2VbRjMpaVGw"},{"name":"Moderat - Eating Hooks","img":"Images/moderat.jpg","song":"Songs/moderat.mp3","link":"http://moderat.fm/"},{"name":"Vitalic - Waiting for the stars","img":"Images/vitalic.jpg","song":"Songs/vitalic.mp3","link":"https://www.vitalic.org/"},{"name":"Calvins Harris - Feels","img":"Images/feels.jpg","song":"Songs/feels.mp3","link":"http://new.calvinharris.com/"},{"name":"Moderat - Bad Kingdom ","img":"Images/badkingdom.png","song":"Songs/badkingdom.mp3","link":"http://moderat.fm/"},{"name":"The shoes - Drifted","img":"Images/drifted.jpg","song":"Songs/drifted.mp3","link":"http://www.theshoes.fr/"}]
+[
+	{"name":"Daft Punk - Harder better faster","img":"Images/daft.jpg","song":"Songs/daft.mp3","link":"https://www.youtube.com/channel/UCKHFvArwRwQU2VbRjMpaVGw"},
+	{"name":"Moderat - Eating Hooks","img":"Images/moderat.jpg","song":"Songs/moderat.mp3","link":"http://moderat.fm/"},
+	{"name":"Vitalic - Waiting for the stars","img":"Images/vitalic.jpg","song":"Songs/vitalic.mp3","link":"https://www.vitalic.org/"},
+	{"name":"Moderat - Bad Kingdom ","img":"Images/badkingdom.png","song":"Songs/badkingdom.mp3","link":"http://moderat.fm/"},
+	{"name":"The shoes - Drifted","img":"Images/drifted.jpg","song":"Songs/drifted.mp3","link":"http://www.theshoes.fr/"}
+]

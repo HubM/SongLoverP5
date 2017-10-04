@@ -82,7 +82,7 @@ app.post('/', function(req, res){
 			allValids.every(function(element, index){
 				if(element == false) {
 					console.log("The song has already been uploaded");
-					res.sendFile(__dirname + '/error.html');
+					res.sendFile(__dirname + '/public/Views/error.html');
 					return statut = 0;
 				} else {
 					return true;
@@ -95,12 +95,12 @@ app.post('/', function(req, res){
 				config.push(newSong);
 				var configJSON = JSON.stringify(config);
 				fs.writeFileSync(filePath, configJSON);
-				res.sendFile(__dirname + '/thanks.html');
+				res.sendFile(__dirname + '/public/Views/thanks.html');
 			}
 	} else {
 
 		// Si problème avec les champs du formulaire
-		res.sendFile(__dirname + '/error.html');
+		res.sendFile(__dirname + '/public/Views/error.html');
 	}
 });
 

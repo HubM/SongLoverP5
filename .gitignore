@@ -27,4 +27,12 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
+# SASS
+.sass-cache/
+
+
+# NODE MODULES
+app/node_modules
+
 # End of https://www.gitignore.io/api/macos
