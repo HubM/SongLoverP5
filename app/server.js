@@ -17,38 +17,93 @@ app.get('/', function (req,res) {
 });
 
 
-app.post('/', function(request, response){
+app.post('/', function(req, res){
 
 		var filePath = __dirname + '/public/songs.json';
+		var configFile = fs.readFileSync(filePath);
+		var config = JSON.parse(configFile);
 
-		var songName = request.body.songName;
-		let songFile = request.files.songFile;
-		let songCover = request.files.songCover;
-		var artistWebsite = request.body.artistWebsite;
+		// give a title to the song
+		if(req.files.songName == undefined) {
+			var songName = req.files.songFile.name;
+		} else {
+			var songName = req.body.songName;
+		}
+		// verify if song has a file and the type
+		if((req.files.songFile != undefined) && (req.files.songFile.mimetype == 'audio/mp3' || req.files.songFile.mimetype == 'audio/ogg')) {
+			var songFile = req.files.songFile;
+		} else {
+			console.log("L'import n'a pas marché, le fichier audio n'est pas conforme");
+		}
 
-		var newSong = 	{	name: ""+songName+"", img:"Images/"+""+songCover.name+"", song:"Songs/"+""+songFile.name+"", link: ""+artistWebsite+""};
+		// verify if the song has a picture and the type
+		if((req.files.songCover != undefined) && (req.files.songCover.mimetype == 'image/jpeg' || req.files.songCover.mimetype == 'image/png')) {
+			var songCover = req.files.songCover;
+		}
 
+		if(req.body.artistWebsite == '') {
+			var artistWebsite = "/";
+		} else {
+			var artistWebsite = req.body.artistWebsite;
+		}
 
-		console.log(songFile.name);
+		if(typeof songName !== 'undefined' && typeof songFile !== 'undefined' && typeof songCover !== 'undefined' 	&& artistWebsite !== '') {
 
-		songFile.mv('public/Songs/'+songFile.name, function(err){
-			console.log(err);
-		});
+			// create the new JSON Object
+			var newSong = 	{	name: ""+songName+"", img:"Images/"+""+songCover.name+"", song:"Songs/"+""+songFile.name+"", link: ""+artistWebsite+""};
 
-		songCover.mv('public/Images/'+songCover.name, function(err){
-			console.log(err);
-		});
+			songFile.mv('public/Songs/'+songFile.name, function(err){
+				if(err) {
+					console.log(err);
+				}
+			});
 
-	  var configFile = fs.readFileSync(filePath);
-	  var config = JSON.parse(configFile);
+			songCover.mv('public/Images/'+songCover.name, function(err){
+				if(err) {
+					console.log(err);
+				}
+			});
 
-	  config.push(newSong);
-	  var configJSON = JSON.stringify(config);
-	  fs.writeFileSync(filePath, configJSON);
+			var valid;
+			var statut = 1;
+			var allValids = [];
 
+			for(var song in config) {
+				if(songName === config[song]['name'] || songFile === config[song]['song'] || songCover === config[song]['img']) {
+					valid = false;
+					allValids.push(valid);
+				} else {
+					valid = true;
+					allValids.push(valid);
+				}
+			}
 
+			// comparer si son valid ou non
+			allValids.every(function(element, index){
+				if(element == false) {
+					console.log("The song has already been uploaded");
+					res.sendFile(__dirname + '/error.html');
+					return statut = 0;
+				} else {
+					return true;
+				}
+			});
+
+			// si tout ok, alors ecriture dans JSON
+			// console.log("statut : " + statut);
+			if( statut ==  1) {
+				config.push(newSong);
+				var configJSON = JSON.stringify(config);
+				fs.writeFileSync(filePath, configJSON);
+				res.sendFile(__dirname + '/thanks.html');
+			}
+	} else {
+
+		// Si problème avec les champs du formulaire
+		res.sendFile(__dirname + '/error.html');
+	}
 });
 
 app.listen(3000, function() {
-	console.log('App listening on localhost 3000');
+	console.log('App listening on localhost:3000');
 });
