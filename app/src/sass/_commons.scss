@@ -3,6 +3,7 @@ canvas {
    margin: 0;
    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
    overflow: hidden;
+   height: 100vh;
 }
 
 canvas {
@@ -34,4 +35,15 @@ button {
    position: absolute;
    top:30px;
    right: 30px;
+}
+
+
+.status-form{
+	display: block;
+	position: relative;
+	padding-top: 40vh;
+
+	h1 {
+		text-align: center;
+	}
 }

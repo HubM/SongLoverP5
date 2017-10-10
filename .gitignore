@@ -36,6 +36,9 @@ Temporary Items
 app/node_modules
 
 # JSON SONGS
-public/songs.json
+app/public/songs.json
+app/public/Images/
+app/public/Songs/
+
 
 # End of https://www.gitignore.io/api/macos
