@@ -74,7 +74,8 @@ button {
   left: 50%;
   transform: translate(-50%, 0) rotate(45deg);
   z-index: 3;
-  transition: all .5s ease; }
+  transition: all .5s ease;
+  cursor: pointer; }
 
 #uploadFormContainer {
   width: 100vw;
