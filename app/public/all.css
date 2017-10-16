@@ -1,3 +1,6 @@
+* {
+  outline: 0; }
+
 body,
 canvas {
   margin: 0;
@@ -59,7 +62,8 @@ button {
   letter-spacing: 2px;
   font-size: 14px;
   padding: 5px 10px;
-  background: #141414; }
+  background: #141414;
+  border-radius: 2px; }
 
 /*Display form*/
 .showForm {
@@ -86,42 +90,73 @@ button {
   transform: translate(-50%, 0) rotate(90deg); }
 
 form {
-  width: 200px;
+  width: 35vw;
   display: block;
-  margin: 100px auto;
+  margin: 20vh auto 0 auto;
   padding: 30px;
   background: black;
   z-index: 10;
-  position: relative; }
+  position: relative;
+  border-radius: 2px; }
+  form label {
+    color: #fff;
+    font-weight: 200;
+    font-size: 12px;
+    border: 1px solid #fff;
+    display: block;
+    padding: 10px 20px;
+    width: 160px;
+    display: block;
+    margin: 0 auto 30px auto;
+    letter-spacing: 1px;
+    cursor: pointer; }
   form input {
-    width: 100%;
+    width: 200px;
+    display: block;
     border: none;
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     color: white;
-    outline: 0; }
+    outline: 0;
+    margin: 0 auto 30px auto;
+    letter-spacing: 1px; }
+    form input::placeholder {
+      color: #fff;
+      letter-spacing: 1px; }
     form input[type="text"] {
       background: none;
       border-bottom: 1px solid white;
       padding-bottom: 5px; }
-    form input[type="submit"] {
-      width: 100px;
-      padding: 10px;
-      margin: 0 auto;
-      display: block;
-      background: white;
-      color: black; }
-    form input[placeholder] {
-      color: #fff; }
-    form input:not(:last-of-type) {
-      margin-bottom: 30px; }
+    form input[type="file"] {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1; }
+  form button {
+    width: 100px;
+    padding: 10px;
+    margin: 0 auto;
+    display: block;
+    background: #fff;
+    color: black;
+    border-radius: 2px;
+    position: initial;
+    transition: all .5s ease;
+    letter-spacing: 1px; }
+    form button:hover {
+      background: none;
+      color: #fff;
+      letter-spacing: 2px; }
 
 .container-slider {
   position: absolute;
   right: 30px;
   padding: 25px 40px;
   background-color: #141414;
-  top: 80px; }
+  top: 80px;
+  border-radius: 2px; }
 
 .slider-title {
   text-transform: uppercase;
@@ -229,3 +264,6 @@ input[type=range] {
     background: transparent;
     color: #7070f5;
     letter-spacing: 2px; }
+
+button {
+  border-radius: 2px; }
