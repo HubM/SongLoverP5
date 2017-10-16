@@ -66,9 +66,6 @@ button {
   border-radius: 2px; }
 
 /*Display form*/
-.showForm {
-  left: 0 !important; }
-
 .displayForm {
   width: 40px;
   height: 40px;
@@ -76,7 +73,8 @@ button {
   bottom: 30px;
   left: 50%;
   transform: translate(-50%, 0) rotate(45deg);
-  z-index: 3; }
+  z-index: 3;
+  transition: all .5s ease; }
 
 #uploadFormContainer {
   width: 100vw;
@@ -84,7 +82,11 @@ button {
   background: rgba(0, 0, 0, 0.5);
   z-index: 3;
   position: absolute;
-  left: 100%; }
+  left: 100%;
+  transition: all .75s ease-in-out; }
+
+.showForm {
+  left: 0 !important; }
 
 .rotate {
   transform: translate(-50%, 0) rotate(90deg); }

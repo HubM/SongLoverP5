@@ -3,7 +3,6 @@ function changeName(val){
 	if(newFile.length >  0) {
 		var actualLabel = document.getElementById('LabelSongFile');
 		return actualLabel.textContent = newFile[0].name;
-		console.log('youhou')
 	} else {
 		return;
 	}

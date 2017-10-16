@@ -34,13 +34,13 @@ function windowResized() {
 
 
 function setup() {
-   canvas = createCanvas(windowWidth, windowHeight);
-   amplitude = new p5.Amplitude();
-   sound.setVolume(0.4);
-   sound.play();
-   for(var i=0; i<80; i++) {
-      balls[i] = new Ball();
-   }
+	canvas = createCanvas(windowWidth, windowHeight);
+	amplitude = new p5.Amplitude();
+	sound.setVolume(0.4);
+	sound.play();
+	for(var i=0; i<80; i++) {
+		balls[i] = new Ball();
+	}
 
 	buttonPlayPause = new buttonPlayPause();
 	buttonPlayPause.display();
@@ -57,8 +57,8 @@ function setup() {
 	sliderVolume = new sliderVolume();
 	sliderVolume.display();
 
-   displayForm = new displayForm();
-   displayForm.display();
+	displayForm = new displayForm();
+	displayForm.display();
 }
 
 
