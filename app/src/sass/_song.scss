@@ -1,0 +1,22 @@
+.cover {
+   position: absolute;
+   left: 30px;
+   top: 30px;
+   width: 100px;
+   cursor: crosshair;
+}
+
+.title {
+   font-size: 40px;
+   color: $black;
+}
+
+.link {
+   text-decoration: none;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   font-size: 14px;
+   padding: 5px 10px;
+   background: $black;
+   border-radius: 2px;
+}

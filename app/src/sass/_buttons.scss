@@ -1,0 +1,26 @@
+.btn {
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 15px;
+	margin-top: 20px;
+	background: rgb(112, 112, 245);
+	color: white;
+	border-radius: 2px;
+	transition: all .5s ease;
+	text-decoration: none;
+	letter-spacing: 1px;
+	font-weight: 200;
+
+	&:hover {
+		background: transparent;
+		color: rgb(112, 112, 245);
+		letter-spacing: 2px;
+	}
+
+}
+
+button {
+	border-radius: 2px;
+}

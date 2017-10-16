@@ -1,0 +1,37 @@
+{
+  "name": "songloverp5",
+  "version": "1.0.0",
+  "description": "Play with music is just so fun",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubM/SongLoverP5.git"
+  },
+  "keywords": [
+    "song",
+    "P5",
+    "Javascript",
+    "Node"
+  ],
+  "author": "Hubert Moncenis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HubM/SongLoverP5/issues"
+  },
+  "homepage": "https://github.com/HubM/SongLoverP5#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "express-fileupload": "^0.2.0",
+    "file-system": "^2.2.2",
+    "formidable": "^1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-ruby-sass": "^2.1.1"
+  }
+}
