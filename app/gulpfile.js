@@ -10,16 +10,23 @@ gulp.task('sass', function() {
 		.pipe(gulp.dest('public/'))
 });
 
-gulp.task('js', function(){
-	return gulp.src('public/Classes/*.js')
-		.pipe(concat('classes.js'))
+gulp.task('js-sketch1', function(){
+	return gulp.src('public/sketch1/Classes/*.js')
+		.pipe(concat('sketch1/classes.js'))
+		.pipe(gulp.dest('./public/'))
+});
+
+gulp.task('js-sketch2', function(){
+	return gulp.src('public/sketch2/Classes/*.js')
+		.pipe(concat('sketch2/classes.js'))
 		.pipe(gulp.dest('./public/'))
 });
 
 
 gulp.task('watch', function () {
 	gulp.watch('src/sass/*.scss', ['sass']);
-	gulp.watch('public/Classes/*.js', ['js']);
+	gulp.watch('public/sketch1/Classes/*.js', ['js-sketch1']);
+	gulp.watch('public/sketch2/Classes/*.js', ['js-sketch2']);
 });
 
 gulp.task('default', function() {

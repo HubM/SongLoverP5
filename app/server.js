@@ -2,20 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('file-system');
 const fileUpload = require('express-fileupload');
+const favicon = require('serve-favicon');
 const app = express();
 
 
 var path = require('path');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(fileUpload());
 
 app.get('/', function (req,res) {
 	res.sendFile(__dirname + '/index.html');
 });
-
 
 app.post('/', function(req, res){
 

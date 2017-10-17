@@ -1,23 +1,28 @@
+// define song
 var randomMusic ;
 var sound;
 var w = window.innerWidth;
 var h  = window.innerHeight;
-var balls = [];
-var randBackR = Math.floor(Math.random() * 255) + 128;
-var randBackG = Math.floor(Math.random() * 255) + 128;
-var randBackB = Math.floor(Math.random() * 255) + 128;
-var sound;
+var triangles = [];
+
+// define bck color
+var randBackR = Math.floor(Math.random() * 255) + 180;
+var randBackG = Math.floor(Math.random() * 255) + 180;
+var randBackB = Math.floor(Math.random() * 255) + 180;
+
+// song attributes
 var amplitude;
-var canvas;
+var sliderVolume;
+var songTitle;
+var buttonPlayPause;
+var sliderSpeed;
 var rotateValue = 0;
 var imgDefault;
-var reverseButton;
-var buttonPlayPause;
-var songTitle;
-var sliderSpeed;
-var sliderVolume;
-var displayForm;
 
+// canvas and form
+var canvas;
+var displayForm;
+var deg=0;
 
 function preload(){
    loadJSON('songs.json', function(data){
@@ -38,8 +43,8 @@ function setup() {
 	amplitude = new p5.Amplitude();
 	sound.setVolume(0.4);
 	sound.play();
-	for(var i=0; i<80; i++) {
-		balls[i] = new Ball();
+	for(var i=0; i<30; i++) {
+		triangles[i] = new Triangle();
 	}
 
 	buttonPlayPause = new buttonPlayPause();
@@ -64,15 +69,18 @@ function setup() {
 
 function draw() {
    background(randBackR,randBackG,randBackB);
-   translate(0,h/2);
+   translate(w/2,h/2);
    if(sound.isPlaying()) {
 	   sliderSpeed.move();
 	   sliderVolume.move();
 	   imgDefault.rotation(10*sliderSpeed.speed);
+	   rotate(deg+= (sliderSpeed.speed)/4);
+	   for(var i=0; i<triangles.length; i++) {
+       		triangles[i].move(sliderSpeed.speed);
+	   }
    }
-   for(var i=0; i< balls.length; i++) {
-      balls[i].display();
-      balls[i].move(sliderSpeed.speed);
+   for(var i=0; i< triangles.length; i++) {
+      triangles[i].display();
    }
 }
 
