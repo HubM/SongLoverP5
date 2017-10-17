@@ -6,9 +6,9 @@ var h  = window.innerHeight;
 var triangles = [];
 
 // define bck color
-var randBackR = Math.floor(Math.random() * 255) + 180;
-var randBackG = Math.floor(Math.random() * 255) + 180;
-var randBackB = Math.floor(Math.random() * 255) + 180;
+var randBackR = Math.floor(Math.random() * 255) + 200;
+var randBackG = Math.floor(Math.random() * 255) + 200;
+var randBackB = Math.floor(Math.random() * 255) + 200;
 
 // song attributes
 var amplitude;
