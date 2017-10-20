@@ -36,7 +36,7 @@ Temporary Items
 app/node_modules
 
 # JSON SONGS
-app/public/songs.json
+#app/public/songs.json
 app/public/Images/
 app/public/Songs/
 
