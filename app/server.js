@@ -29,8 +29,11 @@ app.post("/", function(req, res){
 		} else {
 			var songName = req.body.songName;
 		}
+		console.log(req.files.songFile);
 		// verify if song has a file and the type
-		if((req.files.songFile != undefined) && (req.files.songFile.mimetype == "audio/mp3" || req.files.songFile.mimetype == "audio/ogg")) {
+		if((req.files.songFile != undefined) && (req.files.songFile.mimetype == "audio/mp3" 
+				|| req.files.songFile.mimetype == "audio/ogg") 
+				|| req.files.songFile.mimetype == "audio/mpeg") {
 			var songFile = req.files.songFile;
 		} else {
 			console.log("L'import n'a pas marché, le fichier audio n'est pas conforme");

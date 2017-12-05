@@ -28,12 +28,19 @@ gulp.task('js-sketch3', function(){
 		.pipe(gulp.dest('./public/'))
 });
 
+gulp.task('js-sketch4', function(){
+	return gulp.src('public/sketch4/Classes/*.js')
+		.pipe(concat('sketch4/classes.js'))
+		.pipe(gulp.dest('./public/'))
+});
+
 
 gulp.task('watch', function () {
 	gulp.watch('src/sass/*.scss', ['sass']);
 	gulp.watch('public/sketch1/Classes/*.js', ['js-sketch1']);
 	gulp.watch('public/sketch2/Classes/*.js', ['js-sketch2']);
 	gulp.watch('public/sketch2/Classes/*.js', ['js-sketch3']);
+	gulp.watch('public/sketch4/Classes/*.js', ['js-sketch4']);
 });
 
 gulp.task('default', function() {

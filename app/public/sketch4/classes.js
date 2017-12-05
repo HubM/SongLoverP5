@@ -49,49 +49,6 @@ function Img() {
    }
 };
 
-function Lines() {
-
-	this.x1 = 0;
-	this.y1 = 0;
-	this.x2 = 0;
-	this.y2 = windowHeight;
-
-	this.size = 5;
-
-	this.r = 255;
-	this.g = 255;
-	this.b = 255;
-
-
-	this.move = function(vitesse) {
-		var level = amplitude.getLevel();
-
-		frameRate(vitesse/2);
-		var genR = map(level,0,1,128,255) + random(30,100);
-		var genG = map(level,0,1,128,255) + random(30,100);
-		var genB = map(level,0,1,128,255) + random(30,100);
-		this.r = genR;
-		this.g = genG;
-		this.b = genB;
-		
-
-		frameRate(vitesse*10);
-		push();	
-			this.x1 = vitesse/10;
-			this.x2 = vitesse/10;	
-		pop();
-		
-		this.size = map(level, 0, 1, 0, windowWidth);
-	}
-
-	this.display = function() {
-
-		noFill();
-		strokeWeight(this.size*10);
-		stroke(this.r,this.g,this.b);
-		line(this.x1,this.y1,this.x2,this.y2);
-	}
-}
 function sliderSpeed() {
 	this.containerSlider;
 	this.slider;
@@ -145,6 +102,36 @@ function sliderVolume() {
 	}
 }
 
+function Path() {
+
+   this.x1;
+   this.y1;
+
+   this.r;
+   this.g;
+   this.b;
+
+   this.size = 100;
+
+   this.move = function() {
+      var level = amplitude.getLevel();
+      var size = map(level,0,1,10,400);
+      this.size = size;
+   }
+
+   this.display = function(elX,elY,bckR,bckG,bckB) {
+      this.x1 = elX;
+      this.y1 = elY;
+      this.r = random(128,255);
+      this.g = random(128,255);
+      this.b = random(128,255);
+      fill(this.r,this.g,this.b);
+      noStroke();
+      // stroke(255,252,235);
+      rect(this.x1,this.y1,this.size,this.size);
+   }
+
+}
 function title() {
    this.title;
    this.link;
