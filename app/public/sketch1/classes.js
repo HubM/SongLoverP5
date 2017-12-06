@@ -12,7 +12,7 @@ function Ball() {
      frameRate(this.framerate*10);
      var level = amplitude.getLevel();
      var size = map(level, 0, 1, 0, 200);
-     var finalSize = size*40;
+     var finalSize = size*20;
      this.y = random(-finalSize,finalSize);
  }
 
