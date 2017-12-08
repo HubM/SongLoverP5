@@ -34,13 +34,20 @@ gulp.task('js-sketch4', function(){
 		.pipe(gulp.dest('./public/'))
 });
 
+gulp.task('js-sketch5', function(){
+	return gulp.src('public/sketch5/Classes/*.js')
+		.pipe(concat('sketch5/classes.js'))
+		.pipe(gulp.dest('./public/'))
+});
+
 
 gulp.task('watch', function () {
 	gulp.watch('src/sass/*.scss', ['sass']);
 	gulp.watch('public/sketch1/Classes/*.js', ['js-sketch1']);
 	gulp.watch('public/sketch2/Classes/*.js', ['js-sketch2']);
-	gulp.watch('public/sketch2/Classes/*.js', ['js-sketch3']);
+	gulp.watch('public/sketch3/Classes/*.js', ['js-sketch3']);
 	gulp.watch('public/sketch4/Classes/*.js', ['js-sketch4']);
+	gulp.watch('public/sketch5/Classes/*.js', ['js-sketch5']);
 });
 
 gulp.task('default', function() {

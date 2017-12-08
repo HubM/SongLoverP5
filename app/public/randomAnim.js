@@ -1,4 +1,4 @@
-var random = Math.floor(Math.random() * 4) + 1;
+var random = Math.floor(Math.random() * 5) + 1;
 
 var classes = document.createElement('script');
 classes.type = "text/javascript";
