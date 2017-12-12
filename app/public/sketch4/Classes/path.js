@@ -23,7 +23,6 @@ function Path() {
       this.b = random(128,255);
       fill(this.r,this.g,this.b);
       noStroke();
-      // stroke(255,252,235);
       rect(this.x1,this.y1,this.size,this.size);
    }
 

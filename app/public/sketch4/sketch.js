@@ -78,11 +78,13 @@ function draw() {
 }
 
 function mouseMoved() {
-	path.move(sliderSpeed.speed);
+	path.move();
   path.display(mouseX,mouseY,randBackR,randBackG,randBackB);  
 }
 
-
+function mousePressed() {
+  clear();
+}
 
 
 function togglePlay() {
