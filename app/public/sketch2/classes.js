@@ -141,9 +141,9 @@ function Triangle() {
 	  this.framerate = element;
     frameRate(this.framerate*10);
     var level = amplitude.getLevel();
-    var size = map(level, 0, 1, 0, 200);
+    var size = map(level, 0, 1, 0, 100);
     var weight = map(level, 0, 1, 1, 10);
-    var finalSize = size*40;
+    var finalSize = size*10;
 
     strokeWeight(weight);
     push();

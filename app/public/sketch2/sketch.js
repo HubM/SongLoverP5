@@ -43,7 +43,7 @@ function setup() {
 	amplitude = new p5.Amplitude();
 	sound.setVolume(0.4);
 	sound.play();
-	for(var i=0; i<30; i++) {
+	for(var i=0; i<20; i++) {
 		triangles[i] = new Triangle();
 	}
 
