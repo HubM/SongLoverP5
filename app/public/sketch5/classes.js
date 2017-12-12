@@ -102,29 +102,6 @@ function sliderVolume() {
 	}
 }
 
-function Triangle() {
-
-   this.x1 = -50;
-   this.y1 = 50;
-
-   this.x2 = 0;
-   this.y2 = -50;
-
-   this.x3 = 50;
-   this.y3 = 50;
-
-   this.r = random(128,255);
-   this.g = random(128,255);
-   this.b = random(128,255);
-
-
-   this.display = function() {
-      noStroke();
-      fill(this.r,this.g,this.b);
-      triangle(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
-   }
-
-}
 function title() {
    this.title;
    this.link;
