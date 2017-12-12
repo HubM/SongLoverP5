@@ -1,3 +1,6 @@
+p5.disableFriendlyErrors = true;
+
+
 // define song
 var randomMusic ;
 var sound;
