@@ -48,7 +48,6 @@ function Img() {
          this.img.style("rotate", rotateValue);
    }
 };
-
 function sliderSpeed() {
 	this.containerSlider;
 	this.slider;
