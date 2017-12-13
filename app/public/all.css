@@ -45,6 +45,9 @@ button {
   .status-form h1 {
     text-align: center; }
 
+h2 {
+  margin: 0; }
+
 .cover {
   position: absolute;
   left: 30px;
@@ -270,3 +273,30 @@ input[type=range] {
 
 button {
   border-radius: 2px; }
+
+@keyframes opacity {
+  from {
+    opacity: 0.2; }
+  to {
+    opacity: 0.8; } }
+.loader {
+  width: 100vw;
+  height: 100vh;
+  background: #16174F;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .loader .welcome {
+    text-align: center; }
+    .loader .welcome h2 {
+      font-size: 3rem;
+      opacity: 0.2;
+      animation: opacity 0.75s ease infinite alternate;
+      color: #fff;
+      letter-spacing: -5px;
+      margin-bottom: 10px; }
+    .loader .welcome span {
+      color: #2c2e9f;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 12px; }

@@ -1,0 +1,38 @@
+@keyframes opacity{
+	from{
+		opacity: 0.2;
+	}
+	to {
+		opacity: 0.8;
+	}
+}
+
+.loader {
+	width: 100vw;
+	height: 100vh;
+	background: $blue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	.welcome {
+		text-align: center;
+		h2{
+			font-size:3rem;
+			opacity: 0.2;
+			animation: opacity 0.75s ease infinite alternate;
+			color: #fff;
+			letter-spacing: -5px;
+			margin-bottom: 10px;
+		}
+		span {
+			color: lighten($blue,20);
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			font-size: 12px;
+		}
+	}
+}
+
+
+
