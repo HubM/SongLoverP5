@@ -5,8 +5,8 @@ This repo is only the content of the webserver. I continue to work on this proje
 ## How to use it 
 
 + Clone the project and go to the folder  
-`git clone https://github.com/HubM/SongLoverP5.git`
-`cd SongLoverP5`
+`git clone https://github.com/HubM/SongLoverP5.git`  
+`cd SongLoverP5/app`
 
 
 + Run the project  
