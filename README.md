@@ -10,7 +10,8 @@ This repo is only the content of the webserver. I continue to work on this proje
 
 
 + Run the project  
- `npm install && npm start`  
+ `npm install`  
+ `npm start`  
 
 
 
