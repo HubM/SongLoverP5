@@ -23,6 +23,6 @@ function sliderSpeed() {
 		this.speed = this.slider.value();
 		sound.rate(this.speed);
 
-		return this.speed;
+		// return this.speed;
 	}
 }

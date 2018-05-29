@@ -37,16 +37,18 @@ function displayForm() {
 }
 
 function Img() {
-   this.img;
+  this.img;
 
-   this.display = function() {
-      this.img = createImg(randomMusic.img);
-      this.img.addClass('cover');
-   }
-   this.rotation = function(speed) {
-         rotateValue+=speed;
-         this.img.style("rotate", rotateValue);
-   }
+  this.display = function() {
+    this.img = createImg(randomMusic.img);
+    this.img.addClass('cover');
+  }
+  this.rotation = function(speed, volume) {
+    if(volume > 0) {
+      rotateValue+=speed;
+      this.img.style("rotate", rotateValue);
+    }
+  }
 };
 function sliderSpeed() {
 	this.containerSlider;
@@ -73,7 +75,7 @@ function sliderSpeed() {
 		this.speed = this.slider.value();
 		sound.rate(this.speed);
 
-		return this.speed;
+		// return this.speed;
 	}
 }
 
@@ -102,19 +104,24 @@ function sliderVolume() {
 }
 
 function title() {
-   this.title;
-   this.link;
+  this.title;
+  this.link;
 
-   this.display = function() {
-      this.title = createElement('h1',randomMusic.name);
-      this.title.class('title');
-      this.title.position(200,30);
+  this.display = function() {
+    this.title = createElement('h1',randomMusic.name);
+    this.title.class('title');
+    this.title.position(200,30);
 
-      var c = color(randBackR,randBackG,randBackB);
+    var c = color(randBackR,randBackG,randBackB);
+    if(!randomMusic.link === '#' && 
+       !randomMusic.link === '' && 
+       !randomMusic.link === '/') 
+    {
       this.link = createA(randomMusic.link, 'website');
       this.link.class('link');
       this.link.position(200,110);
       this.link.style('color',c);
       this.link.attribute("target","_blank");
-   }
+    }
+  }
 }

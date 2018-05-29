@@ -1,17 +1,22 @@
 function title() {
-   this.title;
-   this.link;
+  this.title;
+  this.link;
 
-   this.display = function() {
-      this.title = createElement('h1',randomMusic.name);
-      this.title.class('title');
-      this.title.position(200,30);
+  this.display = function() {
+    this.title = createElement('h1',randomMusic.name);
+    this.title.class('title');
+    this.title.position(200,30);
 
-      var c = color(randBackR,randBackG,randBackB);
+    var c = color(randBackR,randBackG,randBackB);
+    if(!randomMusic.link === '#' && 
+       !randomMusic.link === '' && 
+       !randomMusic.link === '/') 
+    {
       this.link = createA(randomMusic.link, 'website');
       this.link.class('link');
       this.link.position(200,110);
       this.link.style('color',c);
       this.link.attribute("target","_blank");
-   }
+    }
+  }
 }

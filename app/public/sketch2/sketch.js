@@ -76,14 +76,16 @@ function draw() {
    if(sound.isPlaying()) {
 	   sliderSpeed.move();
 	   sliderVolume.move();
-	   imgDefault.rotation(10*sliderSpeed.speed);
+	   imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
 	   rotate(deg+= (sliderSpeed.speed)/4);
 	   for(var i=0; i<triangles.length; i++) {
-       		triangles[i].move(sliderSpeed.speed);
+       triangles[i].move(sliderSpeed.speed);
+       triangles[i].display();
 	   }
-   }
-   for(var i=0; i< triangles.length; i++) {
-      triangles[i].display();
+   } else {
+	   for(var i=0; i<triangles.length; i++) {
+	     triangles[i].display();
+	   }   	
    }
 }
 

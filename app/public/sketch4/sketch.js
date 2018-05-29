@@ -28,12 +28,11 @@ var deg=0;
 var path;
 
 function preload(){
-   loadJSON('songs.json', function(data){
-	   randomMusic = data[Math.floor(Math.random() * data.length)];
-	   console.log(randomMusic);
-	   soundFormats('mp3', 'ogg');
-	   sound = loadSound(randomMusic.song);
-   });
+  loadJSON('songs.json', function(data){
+    randomMusic = data[Math.floor(Math.random() * data.length)];
+	  soundFormats('mp3', 'ogg');
+	  sound = loadSound(randomMusic.song);
+  });
 }
 
 function windowResized() {
@@ -74,14 +73,16 @@ function draw() {
   if(sound.isPlaying()) {
 	   sliderSpeed.move();
 	   sliderVolume.move();
-	   imgDefault.rotation(10*sliderSpeed.speed);
+	   imgDefault.rotation(10*sliderSpeed.speed,sliderVolume.volume);
    }
 
 }
 
 function mouseMoved() {
-	path.move();
-  path.display(mouseX,mouseY,randBackR,randBackG,randBackB);  
+	if(sliderVolume.volume > 0) {
+		path.move();
+  	path.display(mouseX,mouseY,randBackR,randBackG,randBackB);  
+	}
 }
 
 function mousePressed() {

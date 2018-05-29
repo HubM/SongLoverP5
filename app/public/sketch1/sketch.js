@@ -29,7 +29,6 @@ var displayForm;
 function preload(){
    loadJSON('songs.json', function(data){
 	   randomMusic = data[Math.floor(Math.random() * data.length)];
-	   console.log(randomMusic);
 	   soundFormats('mp3', 'ogg');
 	   sound = loadSound(randomMusic.song);
    });
@@ -75,11 +74,11 @@ function draw() {
    if(sound.isPlaying()) {
 	   sliderSpeed.move();
 	   sliderVolume.move();
-	   imgDefault.rotation(10*sliderSpeed.speed);
-   }
-   for(var i=0; i< balls.length; i++) {
-      balls[i].display();
-      balls[i].move(sliderSpeed.speed);
+	   imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
+	   for(var i=0; i< balls.length; i++) {
+	      balls[i].display();
+	      balls[i].move(sliderSpeed.speed);
+	   }
    }
 }
 
