@@ -4,19 +4,20 @@ var allDefaultClasses = document.createElement('script');
 allDefaultClasses.type = "text/javascript";
 allDefaultClasses.defer = true;
 allDefaultClasses.src = "allDefaultClasses.js";
+document.getElementsByTagName('head')[0].appendChild(allDefaultClasses);
 
-var classes = document.createElement('script');
-classes.type = "text/javascript";
-classes.defer = true;
-classes.src =  "sketch" + random + "/classes.js";
+if(random !== 5 && random !== 6) {
+	var classes = document.createElement('script');
+	classes.type = "text/javascript";
+	classes.defer = true;
+	classes.src =  "sketch" + random + "/classes.js";
+	document.getElementsByTagName('head')[0].appendChild(classes);
+}
 
 var sketch = document.createElement('script');
 sketch.type = "text/javascript";
 sketch.defer = true;
 sketch.src = "sketch" + random + "/sketch.js";
-
-document.getElementsByTagName('head')[0].appendChild(allDefaultClasses);
-document.getElementsByTagName('head')[0].appendChild(classes);
 document.getElementsByTagName('head')[0].appendChild(sketch);
 
 
