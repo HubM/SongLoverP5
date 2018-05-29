@@ -42,6 +42,7 @@ gulp.task('js-s4', function(){
 
 gulp.task('watch', function () {
 	gulp.watch('src/sass/*.scss', ['sass']);
+        gulp.watch('public/defaultClasses/*.js', ['default-js-classes']);
 	gulp.watch('public/sketch1/Classes/*.js', ['js-s1']);
 	gulp.watch('public/sketch2/Classes/*.js', ['js-s2']);
 	gulp.watch('public/sketch3/Classes/*.js', ['js-s3']);
