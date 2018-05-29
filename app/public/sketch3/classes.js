@@ -14,17 +14,16 @@ function Lines() {
 
 	this.move = function(vitesse) {
 		var level = amplitude.getLevel();
-
-		frameRate(vitesse/2);
 		var genR = map(level,0,1,128,255) + random(30,100);
 		var genG = map(level,0,1,128,255) + random(30,100);
 		var genB = map(level,0,1,128,255) + random(30,100);
+
 		this.r = genR;
 		this.g = genG;
 		this.b = genB;
-		
 
 		frameRate(vitesse*10);
+		
 		push();	
 			this.x1 = vitesse/10;
 			this.x2 = vitesse/10;	

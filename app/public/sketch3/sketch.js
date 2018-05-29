@@ -32,7 +32,6 @@ var Line;
 function preload(){
    loadJSON('songs.json', function(data){
 	   randomMusic = data[Math.floor(Math.random() * data.length)];
-	   console.log(randomMusic);
 	   soundFormats('mp3', 'ogg');
 	   sound = loadSound(randomMusic.song);
    });
@@ -75,7 +74,7 @@ function draw() {
    if(sound.isPlaying()) {
 	   sliderSpeed.move();
 	   sliderVolume.move();
-	   imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
+	   imgDefault.rotation(15*sliderSpeed.speed, sliderVolume.volume);
    }
    Line.display();
    Line.move(sliderSpeed.speed);
