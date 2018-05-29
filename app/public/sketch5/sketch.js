@@ -89,9 +89,9 @@ function draw() {
   if(sound.isPlaying()) {
 	  sliderSpeed.move();
 	  sliderVolume.move();
-	  imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
+	  imgDefault.rotation(5*sliderSpeed.speed, sliderVolume.volume);
 
-	  rotationSpeed = map(sliderSpeed.speed,0,2,0,0.07);
+	  rotationSpeed = map(sliderSpeed.speed,0,2,0,0.04);
    	tubeSize = map(sliderSpeed.speed,0,2,20,60);
 
    	camera(30,30,-20,-20,100,0,100,1,1);

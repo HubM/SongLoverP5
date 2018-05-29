@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <title>Play with song</title>
-      <link rel="stylesheet" href="all.css">
-      <link rel="icon" type="image/png" href="favicon.png">
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.dom.min.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.sound.min.js"></script>
-      <script type="text/javascript" src="inputFile.js"></script>
-      <script type="text/javascript" src="randomAnim.js"></script>
-   </head>
-   <body>
-      <div id="p5_loading" class="loader">
-         <div class="welcome">
-            <h2>Song Lover P5</h2>
-            <span>Made by Hubert Moncenis</span>
-         </div>
-      </div>
-      <section id='uploadFormContainer'>
-   	   <form method="post" action="/" ref='uploadForm' encType="multipart/form-data">
-   		   <input type="text" name="songName" required placeholder="Name song">
-   			<input type="file" name="songFile" required id="songFile" onchange="changeName(this)" />
-			   <label for="songFile" id="LabelSongFile">Song file</label>
-			   <input type="file" name="songCover" required id="songCover" onchange="changeName(this)">      
-			   <label for="songCover" id="LabelImgCover">Cover image</label>
-            <input type="text" name="artistWebsite" placeholder="Artist website song">
-   		   <button type="submit" value="Submit">submit</button>
-   		</form>
-      </section>
-   </body>
+<head>
+  <meta charset="utf-8">
+  <title>Play with song</title>
+  <link rel="stylesheet" href="all.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.dom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.sound.min.js"></script>
+  <script type="text/javascript" src="inputFile.js"></script>
+  <script type="text/javascript" src="randomAnim.js"></script>
+</head>
+<body>
+  <div id="p5_loading" class="loader">
+    <div class="welcome">
+      <h2>Song Lover P5</h2>
+      <span>Made by Hubert Moncenis</span>
+    </div>
+  </div>
+  <section id='uploadFormContainer'>
+   <form method="post" action="/" ref='uploadForm' encType="multipart/form-data">
+      <input type="text" name="songName" required placeholder="Name song">
+      <input type="file" name="songFile" required id="songFile" onchange="changeName(this)" />
+      <label for="songFile" id="LabelSongFile">Song file</label>
+      <input type="file" name="songCover" required id="songCover" onchange="changeName(this)">      
+      <label for="songCover" id="LabelImgCover">Cover image</label>
+      <input type="text" name="artistWebsite" placeholder="Artist website song">
+      <button type="submit" value="Submit">submit</button>
+    </form>
+  </section>
+</body>
 </html>
