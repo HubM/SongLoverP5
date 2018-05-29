@@ -11,9 +11,8 @@ function Ball() {
 	 this.framerate = element;
      frameRate(this.framerate*10);
      var level = amplitude.getLevel();
-     var size = map(level, 0, 1, 0, 200);
-     var finalSize = size*20;
-     this.y = random(-finalSize,finalSize);
+     var size = map(level, 0, 1, 0, 400);
+     this.y = random(-size,size);
  }
 
   this.display = function() {
