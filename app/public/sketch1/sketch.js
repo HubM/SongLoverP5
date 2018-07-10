@@ -54,7 +54,6 @@ function setup() {
 	songTitle = new title();
 	songTitle.display();
 
-	alert('first sketch');
 	if(randomMusic.img) {
 		imgDefault = new Img();
 		imgDefault.display();
