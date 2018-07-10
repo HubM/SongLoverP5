@@ -1,6 +1,5 @@
 function Img() {
   this.img;
-
   this.display = function() {
     this.img = createImg(randomMusic.img);
     this.img.addClass('cover');

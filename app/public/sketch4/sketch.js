@@ -30,59 +30,63 @@ var path;
 function preload(){
   loadJSON('songs.json', function(data){
     randomMusic = data[Math.floor(Math.random() * data.length)];
-	  soundFormats('mp3', 'ogg');
-	  sound = loadSound(randomMusic.song);
+      soundFormats('mp3', 'ogg');
+      sound = loadSound(randomMusic.song);
   });
 }
 
 function windowResized() {
-	resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 function setup() {
-	canvas = createCanvas(windowWidth, windowHeight);
-	background(randBackR,randBackG,randBackB);
-	rectMode(CENTER);
+    canvas = createCanvas(windowWidth, windowHeight);
+    background(randBackR,randBackG,randBackB);
+    rectMode(CENTER);
 
-	amplitude = new p5.Amplitude();
-	sound.setVolume(0.4);
-	sound.play();
+    amplitude = new p5.Amplitude();
+    sound.setVolume(0.4);
+    sound.play();
 
-	buttonPlayPause = new buttonPlayPause();
-	buttonPlayPause.display();
+    buttonPlayPause = new buttonPlayPause();
+    buttonPlayPause.display();
 
-	songTitle = new title();
-	songTitle.display();
+    songTitle = new title();
+    songTitle.display();
 
-	imgDefault = new Img();
-	imgDefault.display();
+    if(randomMusic.img) {
+        imgDefault = new Img();
+        imgDefault.display();
+    }
 
-	sliderSpeed = new sliderSpeed();
-	sliderSpeed.display();
+    sliderSpeed = new sliderSpeed();
+    sliderSpeed.display();
 
-	sliderVolume = new sliderVolume();
-	sliderVolume.display();
+    sliderVolume = new sliderVolume();
+    sliderVolume.display();
 
-	displayForm = new displayForm();
-	displayForm.display();
+    displayForm = new displayForm();
+    displayForm.display();
 
-	path = new Path();
+    path = new Path();
 }
 
 function draw() {
   if(sound.isPlaying()) {
-	   sliderSpeed.move();
-	   sliderVolume.move();
-	   imgDefault.rotation(10*sliderSpeed.speed,sliderVolume.volume);
+       sliderSpeed.move();
+       sliderVolume.move();
+       if(randomMusic.img) {
+           imgDefault.rotation(10*sliderSpeed.speed,sliderVolume.volume);
+       }
    }
 
 }
 
 function mouseMoved() {
-	if(sliderVolume.volume > 0) {
-		path.move();
-  	path.display(mouseX,mouseY,randBackR,randBackG,randBackB);  
-	}
+    if(sliderVolume.volume > 0) {
+        path.move();
+      path.display(mouseX,mouseY,randBackR,randBackG,randBackB);  
+    }
 }
 
 function mousePressed() {
@@ -91,12 +95,14 @@ function mousePressed() {
 
 
 function togglePlay() {
-	if(sound.isPlaying()) {
-		buttonPlayPause.button.elt.innerText = "play";
-		sound.pause();
-		imgDefault.rotation(0);
-	} else {
-		buttonPlayPause.button.elt.innerText = "pause";
-		sound.loop();
-	}
+    if(sound.isPlaying()) {
+        buttonPlayPause.button.elt.innerText = "play";
+        sound.pause();
+        if(randomMusic.img) {
+            imgDefault.rotation(0);
+        }
+    } else {
+        buttonPlayPause.button.elt.innerText = "pause";
+        sound.loop();
+    }
 }

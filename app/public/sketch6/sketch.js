@@ -66,8 +66,10 @@ function setup() {
 	songTitle = new title();
 	songTitle.display();
 
-	imgDefault = new Img();
-	imgDefault.display();
+	if(randomMusic.img) {
+		imgDefault = new Img();
+		imgDefault.display();
+	}
 
 	sliderSpeed = new sliderSpeed();
 	sliderSpeed.display();
@@ -89,7 +91,9 @@ function draw() {
   if(sound.isPlaying()) {
 	  sliderSpeed.move();
 	  sliderVolume.move();
-	  imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
+	  if(randomMusic.img) {
+		imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
+	  }
 	  rotationSpeed = map(sliderSpeed.speed,0,2,0,0.07);
 	  textRotation = map(sliderSpeed.speed, 0,2,0,360);
 
@@ -114,7 +118,9 @@ function togglePlay() {
 	if(sound.isPlaying()) {
 		buttonPlayPause.button.elt.innerText = "play";
 		sound.pause();
-		imgDefault.rotation(0);
+		if(randomMusic.img) {
+			imgDefault.rotation(0);
+		}
 	} else {
 		buttonPlayPause.button.elt.innerText = "pause";
 		sound.loop();

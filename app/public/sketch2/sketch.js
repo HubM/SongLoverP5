@@ -55,8 +55,10 @@ function setup() {
 	songTitle = new title();
 	songTitle.display();
 
-	imgDefault = new Img();
-	imgDefault.display();
+	if(randomMusic.img) {
+    imgDefault = new Img();
+    imgDefault.display();
+  }
 
 	sliderSpeed = new sliderSpeed();
 	sliderSpeed.display();
@@ -74,8 +76,10 @@ function draw() {
    translate(w/2,h/2);
    if(sound.isPlaying()) {
 	   sliderSpeed.move();
-	   sliderVolume.move();
-	   imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
+     sliderVolume.move();
+     if(randomMusic.img) {
+       imgDefault.rotation(10*sliderSpeed.speed, sliderVolume.volume);
+     }
 	   rotate(deg+= (sliderSpeed.speed)/4);
 	   for(var i=0; i<triangles.length; i++) {
        triangles[i].move(sliderSpeed.speed);
@@ -92,8 +96,10 @@ function draw() {
 function togglePlay() {
 	if(sound.isPlaying()) {
 		buttonPlayPause.button.elt.innerText = "play";
-		sound.pause();
-		imgDefault.rotation(0);
+    sound.pause();
+    if(randomMusic.img) {
+      imgDefault.rotation(0);
+    }
 	} else {
 		buttonPlayPause.button.elt.innerText = "pause";
 		sound.loop();

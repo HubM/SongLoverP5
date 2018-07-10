@@ -22,13 +22,12 @@ app.post("/", function(req, res){
 	let songName,
 			songFile,
 			songCover,
-			artistName,
 			artistWebsite;
 
 	/* ===========
 	  SONG TITLE
 	============ */
-	((req.body.songName.length >  0) ? songName = req.body.songName : songName = 'Empty title'); 
+	((req.body.songName.length >  0) ? songName = req.body.songName : songName = req.files.songFile.name); 
 
 	/* ==============
 	  SONG FILE & TYPE
@@ -38,20 +37,14 @@ app.post("/", function(req, res){
 	/* ===========
 	  SONG PICTURE
 	============ */
-	(((req.files.songCover != undefined) && (req.files.songCover.mimetype == "image/jpeg"  || req.files.songCover.mimetype == "image/png")) ? songCover = req.files.songCover : songCover = undefined );
-
-	/* =====
-	  ARTIST
-	====== */		
-	((req.body.artistName.length >  0) ? artistName = req.body.artistName : artistName = "Empty artist");
+	(((req.files.songCover != undefined) && (req.files.songCover.mimetype == "image/jpeg"  || req.files.songCover.mimetype == "image/png")) ? songCover = req.files.songCover : songCover = 0);
 
 	/* ===========
 	  ARTIST WEBSITE
 	============ */		
 	((req.body.artistWebsite.length > 0) ? artistWebsite = req.body.artistWebsite : artistWebsite = "#");
 
-	
-	if(typeof songFile !== undefined && typeof songCover !== undefined) {
+	if(songFile !== undefined) {
 
 		/* =================================
 			Create new JSON Object
@@ -59,13 +52,16 @@ app.post("/", function(req, res){
 		================================== */
 		const newSong = 	{	
 			name: ""+songName+"", 
-			img:"Images/"+""+songCover.name+"", 
+			img: songCover ? "Images/"+""+songCover.name+"" : 0, 
 			song:"Songs/"+""+songFile.name+"", 
 			link: ""+artistWebsite+""
 		};
 
 		songFile.mv(__dirname + "/public/Songs/"+songFile.name, (err) => { if(err) { console.log(err); } });
-		songCover.mv(__dirname + "/public/Images/"+songCover.name, (err) => { if(err) { console.log(err); } });
+
+		if(songCover) {
+			songCover.mv(__dirname + "/public/Images/"+songCover.name, (err) => { if(err) { console.log(err); } });
+		}
 
 		let valid,
 				statut = 1,
@@ -93,7 +89,6 @@ app.post("/", function(req, res){
 		});
 
 		// si tout ok, alors ecriture dans JSON
-		// console.log("statut : " + statut);
 		if( statut ==  1) {
 			config.push(newSong);
 			var configJSON = JSON.stringify(config);
