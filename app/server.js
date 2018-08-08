@@ -47,25 +47,26 @@ app.post("/", function(req, res){
 	if(songFile !== undefined) {
 
 		/* =================================
-			Create new JSON Object
+			Create new Object
 			Move files to folders
 		================================== */
 		const newSong = 	{	
-			name: ""+songName+"", 
-			img: songCover ? "Images/"+""+songCover.name+"" : 0, 
-			song:"Songs/"+""+songFile.name+"", 
-			link: ""+artistWebsite+""
+			name: songName, 
+			img: songCover ? `Images/${songCover.name}` : 0, 
+			song: `Songs/${songFile.name}`, 
+			link: artistWebsite
 		};
 
-		songFile.mv(__dirname + "/public/Songs/"+songFile.name, (err) => { if(err) { console.log(err); } });
+		songFile.mv(`${__dirname}/public/Songs/${songFile.name}`, (err) => { if(err) { console.log(err); } });
 
 		if(songCover) {
-			songCover.mv(__dirname + "/public/Images/"+songCover.name, (err) => { if(err) { console.log(err); } });
+			songCover.mv(`${__dirname}/public/Images/${songCover.name}`, (err) => { if(err) { console.log(err); } });
 		}
 
 		let valid,
-				statut = 1,
-				allValids = [];
+				statut = 1;
+		
+		const allValids = [];
 
 		for(let song in config) {
 			if(songName === config[song]["name"] || songFile === config[song]["song"] || songCover === config[song]["img"]) {
@@ -79,9 +80,9 @@ app.post("/", function(req, res){
 
 		// comparer si son valid ou non
 		allValids.every((element, index) => {
-			if(element == false) {
-				console.log("The song has already been uploaded");
-				res.sendFile(__dirname + "/public/Views/error.html");
+			if(element === false) {
+				console.log("The song has already been uploaded, sorry Bro !");
+				res.sendFile(`${__dirname}/public/Views/error.html`);
 				return statut = 0;
 			} else {
 				return true;
@@ -89,16 +90,16 @@ app.post("/", function(req, res){
 		});
 
 		// si tout ok, alors ecriture dans JSON
-		if( statut ==  1) {
+		if(statut ==  1) {
 			config.push(newSong);
 			var configJSON = JSON.stringify(config);
 			fs.writeFileSync(filePath, configJSON);
-			res.sendFile(__dirname + "/public/Views/thanks.html");
+			res.sendFile(`${__dirname}/public/Views/thanks.html`);
 		}
 	} else {
-		console.log("PLEASE USE COMMONS EXTENSIONS")
+		console.log("PLEASE USE COMMONS EXTENSIONS (MP3,MPEG,OGG)");
 		// Si problème avec les champs du formulaire
-		res.sendFile(__dirname + "/public/Views/error.html");
+		res.sendFile(`${__dirname}/public/Views/error.html`);
 	}
 });
 
